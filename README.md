@@ -1,1 +1,1 @@
-# Analiza Obrazow
+# Analiza Obrazów
