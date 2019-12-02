@@ -82,12 +82,13 @@ fun = {
     @AO5RBlairBliss
 };
 
-params = zeros(max(l(:)), length(fun)); % j kaczki, k wspolczynniki
-for j = 1:max(l(:))
-   for k = 1:8
-       params(j,k) = fun{k}(l==j);
-   end
-end
+% wyrusuj kazda z osobna
+% params = zeros(max(l(:)), length(fun)); % j kaczki, k wspolczynniki
+% for j = 1:max(l(:))
+%    for k = 1:8
+%        params(j,k) = fun{k}(l==j);
+%    end
+% end
 
 m = mean(params);
 s =std(params);
