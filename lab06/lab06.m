@@ -31,12 +31,12 @@ bim = imclose(bim, ones(5));
 bim = imopen(bim, ones(5));
 % imshow(bim); figure;
 
-% segmentacja
+% % segmentacja
 l = bwlabel(bim);
-prop = regionprops(l == 4, 'all');
+% prop = regionprops(l == 4, 'all');
 for j = 1: max(l(:))
    all_props(j) =  regionprops(l == j, 'all');
-   imshow(all_props(j).Image); figure;
+%    imshow(all_props(j).Image); figure;
 end
 
 % Centroid - œrodek geometryczny
@@ -82,17 +82,20 @@ fun = {
     @AO5RBlairBliss
 };
 
-% wyrusuj kazda z osobna
-% params = zeros(max(l(:)), length(fun)); % j kaczki, k wspolczynniki
-% for j = 1:max(l(:))
-%    for k = 1:8
-%        params(j,k) = fun{k}(l==j);
-%    end
-% end
+params = zeros(max(l(:)), length(fun)); % j kaczki, k wspolczynniki
+for j = 1:max(l(:))
+   for k = 1:8
+       params(j,k) = fun{k}(l==j);
+   end
+end
 
 m = mean(params);
 s =std(params);
-
 err = abs(params-m) ./s;
 T = 2; % threshold
+
+% wyrysuj wszystkie
+for j = 1: max(l(:))
+   imshow(all_props(j).Image); figure;
+end
 
