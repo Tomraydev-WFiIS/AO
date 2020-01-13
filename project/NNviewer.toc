@@ -1,0 +1,2 @@
+\contentsline {section}{\numberline {1}Opis projektu}{1}% 
+\contentsline {subsection}{\numberline {1.1}Wstęp}{1}% 
